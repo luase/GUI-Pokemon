@@ -31,7 +31,7 @@ int main(int argc, char const** argv)
     
     //Titulo ventana1
     sf::Texture titulo;
-    if (!titulo.loadFromFile(resourcePath() + "/Others/ZBattle/Title.png")) {
+    if (!titulo.loadFromFile(resourcePath() + "/Others/Title.png")) {
         return EXIT_FAILURE;
     }
     sf::Sprite titulo1(titulo);
