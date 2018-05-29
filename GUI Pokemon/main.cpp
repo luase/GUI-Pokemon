@@ -34,12 +34,14 @@ int main(int argc, char const** argv)
     if (!titulo.loadFromFile(resourcePath() + "/Others/Title.png")) {
         return EXIT_FAILURE;
     }
+    
     sf::Sprite titulo1(titulo);
     titulo1.setPosition(sf::Vector2f(30, 125));
+    titulo1.scale(.25, .25);
     
     //Fuente
     sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "/Sounds/Pokemon GB.ttf")) {
+    if (!font.loadFromFile(resourcePath() + "/Fonts/Pokemon GB.ttf")) {
         return EXIT_FAILURE;
     }
     //Ventana 1
@@ -48,6 +50,8 @@ int main(int argc, char const** argv)
     sf::Text start("Press Space", font, 30);
     start.setFillColor(sf::Color::Black);
     start.setPosition(175, 375);
+    
+    // Musica
     sf::Music music;
     if (!music.openFromFile(resourcePath() + "/Sounds/PokeSong.ogg")) {
         return EXIT_FAILURE;
@@ -56,7 +60,8 @@ int main(int argc, char const** argv)
     
     //Venatana2
     sf::Text name1, name2;
-    string player1, player2;
+    string player1 = "", player2="";
+    
     sf::Text setplayer1("Set Player 1 name: ", font, 15);
     setplayer1.setFillColor(sf::Color::Red);
     setplayer1.setPosition(175, 110);
@@ -76,7 +81,7 @@ int main(int argc, char const** argv)
     rectangle2.setPosition(175, 223);
     
     sf::Texture charmander, squirtle, bulbasaur, trainer;
-    charmander.loadFromFile(resourcePath() + "/Others/charizard.png");
+    charmander.loadFromFile(resourcePath() + "/Others/charmander.png");
     squirtle.loadFromFile(resourcePath() + "/Others/squirtle.png");
     bulbasaur.loadFromFile(resourcePath() + "/Others/bulbasaur.png");
     trainer.loadFromFile(resourcePath() + "/Others/trainer.png");
@@ -117,11 +122,8 @@ int main(int argc, char const** argv)
             }
             if (gotoventana2){
                 if(event.type == sf::Event::TextEntered){
-                    if(event.text.unicode < 128 && player1.size()!= 10 &&  player1setname == false){
+                    if((char)event.text.unicode!=' '&&event.text.unicode < 128 && player1.size()!= 10){
                         player1.push_back((char)event.text.unicode);
-                        if(player2[player2.size()] == '\n'){
-                            player1setname = true;
-                        }
                         name1.setFont(font);
                         name1.setCharacterSize(15);
                         name1.setString(player1);
@@ -134,17 +136,13 @@ int main(int argc, char const** argv)
                 }
                 if(player1setname){
                     if(event.type == sf::Event::TextEntered){
-                        if(event.text.unicode < 128 && player2.size()!= 10 && !player2setname){
+                        if(event.text.unicode < 128 && player2.size()!= 10){
                             player2.push_back((char)event.text.unicode);
-                            if(player2[player2.size()] == '\n'){
-                                player2setname = true;
-                            }
                             name2.setFont(font);
                             name2.setCharacterSize(15);
                             name2.setString(player2);
                             name2.setFillColor(sf::Color::Black);
                             name2.setPosition(175, 230);
-                            
                         }
                         if(player2.size()==10)
                             player2setname = true;
@@ -174,18 +172,13 @@ int main(int argc, char const** argv)
             window.draw(rectangle2);
             window.draw(name1);
             window.draw(name2);
-            
-            
-            
         }
-        
-        
-        // Update the window
         window.display();
     }
     
     std::cout << player1 << std::endl;
     std::cout << player2 << std::endl;
+
     
     return EXIT_SUCCESS;
 }
