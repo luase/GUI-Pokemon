@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		BF63C45020BDF7B600B88474 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = BF63C44F20BDF7B600B88474 /* ResourcePath.mm */; };
 		BF63C45320BDF7B600B88474 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BF63C45220BDF7B600B88474 /* main.cpp */; };
-		BF63C45620BDF7B600B88474 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF63C45520BDF7B600B88474 /* cute_image.jpg */; };
-		BF63C45820BDF7B600B88474 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = BF63C45720BDF7B600B88474 /* nice_music.ogg */; };
-		BF63C45A20BDF7B600B88474 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF63C45920BDF7B600B88474 /* sansation.ttf */; };
-		BF63C45C20BDF7B600B88474 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BF63C45B20BDF7B600B88474 /* icon.png */; };
+		E720612B20BDFC68003DDE57 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = E720612520BDFC68003DDE57 /* Sounds */; };
+		E720612C20BDFC68003DDE57 /* Trainers in Resources */ = {isa = PBXBuildFile; fileRef = E720612620BDFC68003DDE57 /* Trainers */; };
+		E720612D20BDFC68003DDE57 /* Others in Resources */ = {isa = PBXBuildFile; fileRef = E720612720BDFC68003DDE57 /* Others */; };
+		E720612E20BDFC68003DDE57 /* Backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = E720612820BDFC68003DDE57 /* Backgrounds */; };
+		E720612F20BDFC68003DDE57 /* Pokemons in Resources */ = {isa = PBXBuildFile; fileRef = E720612920BDFC68003DDE57 /* Pokemons */; };
+		E720613020BDFC68003DDE57 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = E720612A20BDFC68003DDE57 /* Fonts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,10 +23,12 @@
 		BF63C44F20BDF7B600B88474 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		BF63C45120BDF7B600B88474 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		BF63C45220BDF7B600B88474 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		BF63C45520BDF7B600B88474 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		BF63C45720BDF7B600B88474 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		BF63C45920BDF7B600B88474 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		BF63C45B20BDF7B600B88474 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		E720612520BDFC68003DDE57 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Sounds; path = Pokes/Sounds; sourceTree = SOURCE_ROOT; };
+		E720612620BDFC68003DDE57 /* Trainers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Trainers; path = Pokes/Trainers; sourceTree = SOURCE_ROOT; };
+		E720612720BDFC68003DDE57 /* Others */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Others; path = Pokes/Others; sourceTree = SOURCE_ROOT; };
+		E720612820BDFC68003DDE57 /* Backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Backgrounds; path = Pokes/Backgrounds; sourceTree = SOURCE_ROOT; };
+		E720612920BDFC68003DDE57 /* Pokemons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Pokemons; path = Pokes/Pokemons; sourceTree = SOURCE_ROOT; };
+		E720612A20BDFC68003DDE57 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = Pokes/Fonts; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +81,12 @@
 		BF63C45420BDF7B600B88474 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				BF63C45520BDF7B600B88474 /* cute_image.jpg */,
-				BF63C45720BDF7B600B88474 /* nice_music.ogg */,
-				BF63C45920BDF7B600B88474 /* sansation.ttf */,
-				BF63C45B20BDF7B600B88474 /* icon.png */,
+				E720612820BDFC68003DDE57 /* Backgrounds */,
+				E720612A20BDFC68003DDE57 /* Fonts */,
+				E720612720BDFC68003DDE57 /* Others */,
+				E720612920BDFC68003DDE57 /* Pokemons */,
+				E720612520BDFC68003DDE57 /* Sounds */,
+				E720612620BDFC68003DDE57 /* Trainers */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -143,10 +149,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF63C45C20BDF7B600B88474 /* icon.png in Resources */,
-				BF63C45A20BDF7B600B88474 /* sansation.ttf in Resources */,
-				BF63C45820BDF7B600B88474 /* nice_music.ogg in Resources */,
-				BF63C45620BDF7B600B88474 /* cute_image.jpg in Resources */,
+				E720612C20BDFC68003DDE57 /* Trainers in Resources */,
+				E720612F20BDFC68003DDE57 /* Pokemons in Resources */,
+				E720612D20BDFC68003DDE57 /* Others in Resources */,
+				E720613020BDFC68003DDE57 /* Fonts in Resources */,
+				E720612E20BDFC68003DDE57 /* Backgrounds in Resources */,
+				E720612B20BDFC68003DDE57 /* Sounds in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
