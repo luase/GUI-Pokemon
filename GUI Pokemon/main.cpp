@@ -39,7 +39,7 @@ int main(int argc, char const** argv)
     
     //Fuente
     sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "Pokemon GB.ttf")) {
+    if (!font.loadFromFile(resourcePath() + "/Sounds/Pokemon GB.ttf")) {
         return EXIT_FAILURE;
     }
     //Ventana 1
@@ -49,7 +49,7 @@ int main(int argc, char const** argv)
     start.setFillColor(sf::Color::Black);
     start.setPosition(175, 375);
     sf::Music music;
-    if (!music.openFromFile(resourcePath() + "PokeSong.ogg")) {
+    if (!music.openFromFile(resourcePath() + "/Sounds/PokeSong.ogg")) {
         return EXIT_FAILURE;
     }
     music.play();
@@ -76,10 +76,10 @@ int main(int argc, char const** argv)
     rectangle2.setPosition(175, 223);
     
     sf::Texture charmander, squirtle, bulbasaur, trainer;
-    charmander.loadFromFile(resourcePath() + "charizard.png");
-    squirtle.loadFromFile(resourcePath() + "squirtle.png");
-    bulbasaur.loadFromFile(resourcePath() + "bulbasaur.png");
-    trainer.loadFromFile(resourcePath() + "trainer.png");
+    charmander.loadFromFile(resourcePath() + "/Others/charizard.png");
+    squirtle.loadFromFile(resourcePath() + "/Others/squirtle.png");
+    bulbasaur.loadFromFile(resourcePath() + "/Others/bulbasaur.png");
+    trainer.loadFromFile(resourcePath() + "/Others/trainer.png");
     sf::Sprite charma(charmander);
     sf::Sprite squir(squirtle);
     sf::Sprite bulba(bulbasaur);
