@@ -23,7 +23,7 @@ int main(int argc, char const** argv)
     if (!texture.loadFromFile(resourcePath() + "/Backgrounds/background.jpg")) {
         return EXIT_FAILURE;
     }
-    if (!backgrund2.loadFromFile(resourcePath() + "background2.jpg")) {
+    if (!backgrund2.loadFromFile(resourcePath() + "/Backgrounds/background2.jpg")) {
         return EXIT_FAILURE;
     }
     sf::Sprite sprite(texture);
@@ -31,7 +31,7 @@ int main(int argc, char const** argv)
     
     //Titulo ventana1
     sf::Texture titulo;
-    if (!titulo.loadFromFile(resourcePath() + "Poketitulo3.png")) {
+    if (!titulo.loadFromFile(resourcePath() + "/Others/ZBattle/Title.png")) {
         return EXIT_FAILURE;
     }
     sf::Sprite titulo1(titulo);
