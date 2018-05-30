@@ -31,12 +31,12 @@ void Player::set_name(string name)
 
 int Player::num_Pokemon()
 {
-	return pokemones.size();
+	return (int)pokemones.size();
 }
 
 int Player::num_Items()
 {
-	return items.size();
+	return (int)items.size();
 }
 
 string Player::name_poke(int n)
@@ -53,9 +53,9 @@ string Player::name_item(int n)
 	return items[n].name;
 }
 
-string Player::ver_name(Player p)
+string Player::ver_name()
 {
-	return p.name;
+	return name;
 }
 
 void Player::set_Alive(int a)
@@ -69,7 +69,38 @@ int Player::get_Alive()
 	return vivos;
 }
 
+unsigned int Player::size_name()
+{
+    return (int)name.length();
+}
+
+void Player::push(char c)
+{
+    name += c;
+    return;
+}
+
 vector<Pokemon> Player::get_Pokemones()
 {
 	return pokemones;
+}
+
+void Player::pop()
+{
+    string b;
+    for(int i=0;i<name.length()-1;i++)
+        b+=name[i];
+    name=b;
+    return;
+}
+void Player::pop_pok()
+{
+    pokemones.pop_back();
+    return;
+}
+
+void Player::new_Pokemon(Pokemon a)
+{
+    pokemones.push_back(a);
+    return;
 }

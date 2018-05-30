@@ -23,12 +23,17 @@ public:
 	void set_name(string name);
 	void set_Alive(int);
 	int get_Alive();
+    void new_Pokemon(Pokemon);
 	int num_Pokemon();
 	int num_Items();
+    unsigned int size_name();
 	vector<Pokemon> get_Pokemones();
 	string name_poke(int n);
 	string name_item(int n);
-	string ver_name(Player p);
+	string ver_name();
+    void push(char);
+    void pop();
+    void pop_pok();
 };
 
 #endif
