@@ -12,55 +12,41 @@ int main(int argc, char const** argv)
     
     //Icono de aplicación
     sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "/Others/icon.png")) {
-        return EXIT_FAILURE;
-    }
+    icon.loadFromFile(resourcePath() + "/Others/icon.png");
     window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    //backgrounds
-    sf::Texture texture;
-    sf::Texture backgrund2;
-    if (!texture.loadFromFile(resourcePath() + "/Backgrounds/background.jpg")) {
-        return EXIT_FAILURE;
-    }
-    if (!backgrund2.loadFromFile(resourcePath() + "/Backgrounds/background2.jpg")) {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite sprite(texture);
-    sf::Sprite back2(backgrund2);
-    
-    //Titulo ventana1
-    sf::Texture titulo;
-    if (!titulo.loadFromFile(resourcePath() + "/Others/Title.png")) {
-        return EXIT_FAILURE;
-    }
-    
-    sf::Sprite titulo1(titulo);
-    titulo1.setPosition(sf::Vector2f(30, 125));
-    titulo1.scale(.25, .25);
-    
-    //Fuente
+    //Elementos Globales
     sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "/Fonts/Pokemon GB.ttf")) {
-        return EXIT_FAILURE;
-    }
-    //Ventana 1
-    sf::Text text("\t\t\t\tAlan Antonio \tJaime Saul \tUlises ", font, 10);
-    text.setFillColor(sf::Color::Black);
+    font.loadFromFile(resourcePath() + "/Fonts/Pokemon GB.ttf");
+    
+    // Ventana 1: Inicalizar elementos.
+    sf::Texture back_window1;
+    back_window1.loadFromFile(resourcePath() + "/Backgrounds/background.jpg");
+    sf::Sprite back1(back_window1);
+    
+    sf::Texture title_pokemon;
+    title_pokemon.loadFromFile(resourcePath() + "/Others/Title.png");
+    sf::Sprite title_window1(title_pokemon);
+    title_window1.setPosition(sf::Vector2f(20, 100));
+    title_window1.scale(0.25, 0.25);
+    
+    sf::Text team("\t\t\tAlan Alvarez \tJaime Alonso \tUlises Campos", font, 10);
+    team.setFillColor(sf::Color::Black);
     sf::Text start("Press Space", font, 30);
     start.setFillColor(sf::Color::Black);
-    start.setPosition(175, 375);
+    start.setPosition(185, 375);
     
-    // Musica
     sf::Music music;
-    if (!music.openFromFile(resourcePath() + "/Sounds/PokeSong.ogg")) {
-        return EXIT_FAILURE;
-    }
+    music.openFromFile(resourcePath() + "/Sounds/PokeSong.ogg");
     music.play();
     
     //Venatana2
+    sf::Texture back_window2;
+    back_window2.loadFromFile(resourcePath() + "/Backgrounds/background2.jpg");
+    sf::Sprite back2(back_window2);
+    
     sf::Text name1, name2;
-    string player1 = "", player2="";
+    string player1_name, player2_name;
     
     sf::Text setplayer1("Set Player 1 name: ", font, 15);
     setplayer1.setFillColor(sf::Color::Red);
@@ -80,106 +66,116 @@ int main(int argc, char const** argv)
     rectangle2.setOutlineThickness(2);
     rectangle2.setPosition(175, 223);
     
-    sf::Texture charmander, squirtle, bulbasaur, trainer;
-    charmander.loadFromFile(resourcePath() + "/Others/charmander.png");
-    squirtle.loadFromFile(resourcePath() + "/Others/squirtle.png");
-    bulbasaur.loadFromFile(resourcePath() + "/Others/bulbasaur.png");
-    trainer.loadFromFile(resourcePath() + "/Others/trainer.png");
-    sf::Sprite charma(charmander);
-    sf::Sprite squir(squirtle);
-    sf::Sprite bulba(bulbasaur);
-    sf::Sprite train(trainer);
+    sf::Texture back_charmander, back_squirtle, back_bulbasaur, back_trainer;
+    back_charmander.loadFromFile(resourcePath() + "/Others/charmander.png");
+    back_squirtle.loadFromFile(resourcePath() + "/Others/squirtle.png");
+    back_bulbasaur.loadFromFile(resourcePath() + "/Others/bulbasaur.png");
+    back_trainer.loadFromFile(resourcePath() + "/Others/trainer.png");
+    sf::Sprite back2_1(back_charmander);
+    sf::Sprite back2_2(back_squirtle);
+    sf::Sprite back2_3(back_bulbasaur);
+    sf::Sprite back2_4(back_trainer);
     
-    charma.scale(.5, .5);
-    squir.scale(.5, .5);
-    bulba.scale(.5,.5);
-    train.scale(0.5, 0.5);
-    train.setPosition(0, 150);
-    charma.setPosition(150, 320);
-    squir.setPosition(300, 320);
-    bulba.setPosition(450, 320);
+    back2_1.scale(.5, .5);
+    back2_2.scale(.5, .5);
+    back2_3.scale(.5,.5);
+    back2_4.scale(0.5, 0.5);
     
-    bool gotoventana2 =  false;
-    bool player1setname = false;
-    bool player2setname = false;
+    back2_1.setPosition(160, 320);
+    back2_2.setPosition(300, 320);
+    back2_3.setPosition(450, 320);
+    back2_4.setPosition(-20, 150);
+    
+    
+    
+    //Controlador de venatanas
+    int window_controller = 1;
     
     while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if (event.type == sf::Event::Closed) {
+            
+            if (event.type == sf::Event::Closed)
+            {
                 window.close();
             }
-            if(event.type == sf::Event::KeyPressed){
-                if(event.key.code == sf::Keyboard::Space){
+            // Avanzar a segunda ventana
+            if(event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Space)
+            {
                     music.stop();
-                    gotoventana2  = true;
-                }
-                if(event.key.code == sf::Keyboard::Escape){
+                    window_controller = 2;
+            }
+                if(event.key.code == sf::Keyboard::Escape)
+                {
                     window.close();
                 }
-            }
-            if (gotoventana2){
-                if(event.type == sf::Event::TextEntered){
-                    if((char)event.text.unicode!=' '&&event.text.unicode < 128 && player1.size()!= 10){
-                        player1.push_back((char)event.text.unicode);
+            if (window_controller == 2)
+            {
+                if(event.type == sf::Event::TextEntered)
+                {
+                    if((char)event.text.unicode!=' ' && event.text.unicode < 128 && player1_name.size() < 10)
+                    {
+                        player1_name.push_back((char)event.text.unicode);
                         name1.setFont(font);
                         name1.setCharacterSize(15);
-                        name1.setString(player1);
+                        name1.setString(player1_name);
                         name1.setFillColor(sf::Color::Black);
                         name1.setPosition(175, 140);
                     }
-                    if(player1.size() == 10){
-                        player1setname = true;
-                    }
                 }
-                if(player1setname){
-                    if(event.type == sf::Event::TextEntered){
-                        if(event.text.unicode < 128 && player2.size()!= 10){
-                            player2.push_back((char)event.text.unicode);
+                if(player1_name.size() == 10)
+                {
+                    if(event.type == sf::Event::TextEntered)
+                    {
+                        if(event.text.unicode < 128 && player2_name.size()!= 10)
+                        {
+                            player2_name.push_back((char)event.text.unicode);
                             name2.setFont(font);
                             name2.setCharacterSize(15);
-                            name2.setString(player2);
+                            name2.setString(player2_name);
                             name2.setFillColor(sf::Color::Black);
                             name2.setPosition(175, 230);
                         }
-                        if(player2.size()==10)
-                            player2setname = true;
                     }
                 }
                 
+                if(player1_name.size() == 10 && player2_name.size() == 10)
+                {
+                    window_controller = 3;
+                }
             }
-            
         }
         
-        window.clear();
-        if(!gotoventana2){
-            window.draw(sprite);
-            window.draw(text);
-            window.draw(start);
-            window.draw(titulo1);
-        }
-        if(gotoventana2){
-            window.draw(back2);
-            window.draw(train);
-            window.draw(charma);
-            window.draw(bulba);
-            window.draw(squir);
-            window.draw(setplayer1);
-            window.draw(setplayer2);
-            window.draw(rectangle1);
-            window.draw(rectangle2);
-            window.draw(name1);
-            window.draw(name2);
+        
+        switch (window_controller)
+        {
+            case 1:
+                window.clear();
+                window.draw(back1);
+                window.draw(title_window1);
+                window.draw(team);
+                window.draw(start);
+                break;
+            case 2:
+                window.clear();
+                window.draw(back2);
+                window.draw(back2_1);
+                window.draw(back2_2);
+                window.draw(back2_3);
+                window.draw(back2_4);
+                window.draw(setplayer1);
+                window.draw(setplayer2);
+                window.draw(rectangle1);
+                window.draw(rectangle2);
+                window.draw(name1);
+                window.draw(name2);
+                break;
         }
         window.display();
     }
     
-    std::cout << player1 << std::endl;
-    std::cout << player2 << std::endl;
-
-    
-    return EXIT_SUCCESS;
+    return 0;
 }
 
