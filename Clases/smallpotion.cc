@@ -8,6 +8,8 @@ SmPot::SmPot()
     heal_amount = 40;
 }
 
+SmPot::~SmPot() {}
+
 SmPot::SmPot(int n) : SmPot()
 {
     usos = n;

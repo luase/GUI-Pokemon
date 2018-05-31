@@ -8,6 +8,8 @@ BPot::BPot()
     heal_amount = 100;
 }
 
+BPot::~BPot() {}
+
 BPot::BPot(int n) : BPot()
 {
     usos = n;

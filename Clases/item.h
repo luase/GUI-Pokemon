@@ -4,15 +4,16 @@
 #include <string>
 #include "pokemon.h"
 
-struct Item
+
+class Item
 {
+  public:
 	std::string name;
 	std::string description;
 	int usos;
-
 	Item();
 	virtual ~Item();
-	virtual void use();
+	virtual void use(Pokemon &poke);
 	void add(int a);
 	int usos_restantes();
 };

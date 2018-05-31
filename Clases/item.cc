@@ -3,7 +3,7 @@
 Item::Item() {}
 Item::~Item() {}
 
-void Item::use() {}
+void Item::use(Pokemon &poke) {}
 
 void Item::add(int a)
 {

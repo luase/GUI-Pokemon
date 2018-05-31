@@ -8,6 +8,8 @@ RevPot::RevPot()
     heal_amount = 0;
 }
 
+RevPot::~RevPot() {}
+
 RevPot::RevPot(int n) : RevPot()
 {
     usos = n;
