@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "typeinfo": "cpp",
+        "algorithm": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp",
+        "vector": "cpp",
+        "__split_buffer": "cpp",
+        "__tree": "cpp",
+        "atomic": "cpp",
+        "ios": "cpp",
+        "map": "cpp",
+        "string": "cpp",
+        "system_error": "cpp",
+        "memory": "cpp"
+    }
+}
