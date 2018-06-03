@@ -1,1 +1,0 @@
-Tener concordancia entre los names de los métodos e idioma, así como en loa atributos de cada objeto por ejemplo que los names de los items, pokemons, etc. sean guardados con la variable name. 
